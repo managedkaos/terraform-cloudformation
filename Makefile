@@ -1,25 +1,25 @@
-help:
-	@echo "Hello! :D"
-	@echo "These are the targets: web, ssh, up, down, start, stop, tf, apply, output"
-	@echo
-	@echo
-	@echo
+plan refresh init validate format:
+	terraform $(@)
 
-web:
-	open "http://$(shell terraform output | grep nginx_public_dns | cut -d\" -f2)"
+upgrade:
+	terraform init -upgrade
 
-ssh:
-	ssh -i ./keys/ubuntu.pem ubuntu@$(shell terraform output | grep nginx_public_dns | cut -d\" -f2)
-
-up: start
-
-down: stop
-
-stop start:
-	./scripts/$(@).sh
-
-tf apply:
+apply approve:
 	terraform apply -auto-approve
 
-output:
-	terraform output
+update:
+	terraform get -update
+
+cost:
+	@echo "["
+	@echo "  .totalHourlyCost,"
+	@echo "  .diffTotalHourlyCost,"
+	@echo "  .totalMonthlyCost,"
+	@echo "  .diffTotalMonthlyCost"
+	@echo "]"
+
+	@infracost breakdown \
+		--path=. \
+		--format=json | \
+		jq -r '. | [.totalHourlyCost, .diffTotalHourlyCost, .totalMonthlyCost, .diffTotalMonthlyCost]'
+
