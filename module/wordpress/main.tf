@@ -17,17 +17,14 @@ resource "aws_cloudformation_stack" "stack" {
   name          = var.name
   tags          = var.tags
   template_body = file("${path.module}/WordPress_Bootstrap_AmazonLinux2.template")
-  #template_url = coalesce(var.template_url, "https://s3-${var.name}.amazonaws.com/cloudformation-templates-${var.name}/WordPress_Single_Instance.template")
 
   parameters = {
     DBName         = "wordpressdb"
     DBPassword     = "wordpressdb"
     DBRootPassword = "wordpressdb"
     DBUser         = "wordpressdb"
-    #InstanceType   = "t2.small"
-    InstanceType = "t3.micro"
-    KeyName      = aws_key_pair.key.id
-    SSHLocation  = "0.0.0.0/0"
+    InstanceType   = "t4g.small"
+    KeyName        = aws_key_pair.key.id
+    SSHLocation    = "0.0.0.0/0"
   }
-
 }
