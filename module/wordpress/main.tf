@@ -1,3 +1,7 @@
+locals {
+  ssh_path = "./${path.module}/${var.environment}"
+}
+
 resource "tls_private_key" "key" {
   algorithm = "RSA"
   rsa_bits  = 4096
@@ -9,7 +13,7 @@ resource "aws_key_pair" "key" {
   tags            = var.tags
 
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.key.private_key_pem}' > ./${path.module}/${var.name}.pem && chmod 600 ${path.module}/${var.name}.pem"
+    command = "mkdir -p ${local.ssh_path} && echo '${tls_private_key.key.private_key_pem}' > ${local.ssh_path}/${var.name}.pem && chmod 600 ${local.ssh_path}/${var.name}.pem"
   }
 }
 
@@ -24,10 +28,8 @@ resource "aws_cloudformation_stack" "stack" {
     DBPassword     = "wordpressdb"
     DBRootPassword = "wordpressdb"
     DBUser         = "wordpressdb"
-    #InstanceType   = "t2.small"
-    InstanceType = "t3.micro"
-    KeyName      = aws_key_pair.key.id
-    SSHLocation  = "0.0.0.0/0"
+    InstanceType   = "t3.micro"
+    KeyName        = aws_key_pair.key.id
+    SSHLocation    = "0.0.0.0/0"
   }
-
 }

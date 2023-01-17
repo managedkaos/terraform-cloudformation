@@ -1,0 +1,70 @@
+{
+  "us-east-1": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "stack": [
+          "map",
+          "string"
+        ]
+      }
+    ],
+    "value": {
+      "stack": {
+        "WebsiteURL": "http://ec2-3-239-230-226.compute-1.amazonaws.com/wordpress"
+      }
+    }
+  },
+  "us-east-2": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "stack": [
+          "map",
+          "string"
+        ]
+      }
+    ],
+    "value": {
+      "stack": {
+        "WebsiteURL": "http://ec2-3-16-214-181.us-east-2.compute.amazonaws.com/wordpress"
+      }
+    }
+  },
+  "us-west-1": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "stack": [
+          "map",
+          "string"
+        ]
+      }
+    ],
+    "value": {
+      "stack": {
+        "WebsiteURL": "http://ec2-3-101-20-215.us-west-1.compute.amazonaws.com/wordpress"
+      }
+    }
+  },
+  "us-west-2": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "stack": [
+          "map",
+          "string"
+        ]
+      }
+    ],
+    "value": {
+      "stack": {
+        "WebsiteURL": "http://ec2-35-84-181-208.us-west-2.compute.amazonaws.com/wordpress"
+      }
+    }
+  }
+}
