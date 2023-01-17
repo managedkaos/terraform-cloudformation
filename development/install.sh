@@ -2,12 +2,12 @@
 
 for server in $(terraform output -json | grep WebsiteURL | cut -d/ -f3);
 do
+    echo "# ${server}"
     ssh -i ./key.pem "ec2-user@${server}" << YOLO
-        curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-        php wp-cli.phar --info
+        curl -sO https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         chmod +x wp-cli.phar
         sudo mv wp-cli.phar /usr/local/bin/wp
-        wp core install --path=/var/www/html/wordpress \
+        sudo /usr/local/bin/wp core install --path=/var/www/html/wordpress \
             --url=${server}/wordpress \
             --title="${SITE_TITLE}" \
             --admin_user="${ADMIN_USER}" \
