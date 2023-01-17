@@ -7,11 +7,14 @@ format:
 upgrade:
 	terraform init -upgrade
 
-apply approve:
+apply:
 	terraform apply -auto-approve
 
 update:
 	terraform get -update
+
+install:
+	$(PROJECT_HOME)/scripts/install.sh
 
 clean:
 	terraform apply --destroy
