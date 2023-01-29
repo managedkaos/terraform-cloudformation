@@ -7,7 +7,7 @@ format:
 upgrade:
 	terraform init -upgrade
 
-apply:
+apply up:
 	terraform apply -auto-approve
 
 update:
