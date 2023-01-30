@@ -1,1 +1,0 @@
-wp core install --http='http://ec2-35-84-181-208.us-west-2.compute.amazonaws.com/wordpress' --path=/var/www/html/wordpress --url='http://ec2-35-84-181-208.us-west-2.compute.amazonaws.com/wordpress' --title='Globomantics Datadog Demo' --admin_user=admin --admin_password='T5|[8C$1Grs!`%^w(-^eVqs(DZ9q7Ffn' --admin_email='datadog-testing-1@managedkaos.com'

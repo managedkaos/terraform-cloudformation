@@ -13,9 +13,6 @@ apply up:
 update:
 	terraform get -update
 
-install:
-	$(PROJECT_HOME)/scripts/install.sh
-
 clean:
 	terraform apply --destroy
 
@@ -32,3 +29,11 @@ cost:
 		--format=json | \
 		jq -r '. | [.totalHourlyCost, .diffTotalHourlyCost, .totalMonthlyCost, .diffTotalMonthlyCost]'
 
+start:
+	$(PROJECT_HOME)/scripts/start-instances.sh
+
+stop:
+	$(PROJECT_HOME)/scripts/stop-instances.sh
+
+install:
+	$(PROJECT_HOME)/scripts/install.sh
