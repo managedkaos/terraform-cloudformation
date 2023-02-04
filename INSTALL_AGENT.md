@@ -47,6 +47,6 @@
 1. Run `datadog-agent hostname` and observe the output.
 1. See the complete configuration without comments using the command: `grep -vE "^$|#" datadog.yaml`:w
 1. Go back to the datadog console.
-1. Duplicated hosts when installing the Agent
-When installing the Agent on an AWS host, you might see duplicated hosts on the Datadog infrastructure page for a few hours if you manually set the hostname in the Agent’s configuration. The duplicate hosts disappear a few hours later, and does not affect your billing.
+1. Duplicated hosts when installing the Agent...
+    If you manually set the hostname in the Agent’s configuration, you might see duplicated names on the Datadog infrastructure list and map pages for a few hours. The duplicate hosts disappear a few hours later, and does not affect your billing.
 
