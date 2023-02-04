@@ -37,3 +37,6 @@ stop:
 
 install:
 	$(PROJECT_HOME)/scripts/install.sh
+
+list:
+	$(PROJECT_HOME)/scripts/list-instances.sh
