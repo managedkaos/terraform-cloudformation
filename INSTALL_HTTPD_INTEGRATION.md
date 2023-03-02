@@ -30,17 +30,20 @@
 
         systemctl restart datadog-agent
 
-1. Check the status by running `datadog-agent status | less` and looking for `apache` under the `Collector` section.
+1. Check the status by running `datadog-agent configcheck` and using `grep` to find `apache check` in the output.
 
-        =========
-        Collector
-        =========
+        datadog-agent configcheck | grep -A 5 "apache check"
 
-        Running Checks
-        ==============
+    The output should be similar to the following:
 
-            apache (4.2.0)
-            --------------
+        === apache check ===
+        Configuration provider: file
+        Configuration source: file:/etc/datadog-agent/conf.d/apache.d/conf.yaml
+        Instance ID: apache:9ad92079e09f96b4
+        apache_status_url: http://localhost/server-status?auto
+        disable_generic_tags: true
+
+
 
 # References
 - [The Apache Integration](https://docs.datadoghq.com/integrations/apache/?tab=host)
