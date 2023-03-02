@@ -69,7 +69,7 @@
 
 1. Explain that we need to make three changes to enable process collection.
 
-    1. Fisrt, uncomment the line `# process_config:`.
+    1. First, uncomment the line `# process_config:`.
     1. Then, uncomment the line `# process_collection:`.
     1. And last, uncomment the line `# enabled: false`.
 
@@ -77,11 +77,11 @@
 
 1. Save the file and exit the editor.
 
-1. Explan that the datadog agent service needs to be restarted to pick up the new configuration.
+1. Explain that the datadog agent service needs to be restarted to pick up the new configuration.
 
 1. Run `systemctl restart datadog-agent`.
 
-1. Explain that the updated configuraiton can be checked using `datadog-agent hostname`.  The output of this command should show the name assigned in the configuration, `webserver-1`.
+1. Explain that the updated configuration can be checked using `datadog-agent hostname`.  The output of this command should show the name assigned in the configuration, `webserver-1`.
 
 1. Run `datadog-agent hostname` and observe the output.
 

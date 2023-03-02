@@ -40,3 +40,6 @@ install:
 
 list:
 	$(PROJECT_HOME)/scripts/list-instances.sh
+
+traffic:
+	$(PROJECT_HOME)/scripts/traffic.sh
