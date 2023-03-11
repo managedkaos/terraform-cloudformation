@@ -1,5 +1,7 @@
 ec2-*
 *.pem
+*.pdf
+
 
 # Local .terraform directories
 **/.terraform/*
