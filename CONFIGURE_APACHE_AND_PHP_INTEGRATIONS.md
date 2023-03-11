@@ -8,8 +8,8 @@
 1. Select the `Configure` tab and note the instructions to configure the application.
 1. Repeat the integration installation steps for `PHP`.
 
-# Configure Apache and PHP on the Server
-The following steps walk you through configuring the Datadog agent, Apache, and PHP for application integrations.
+## Configure Apache and PHP
+The following steps walk you through configuring  Apache and PHP for application integrations.
 
 Repeat the steps as needed for each server in your fleet.
 
@@ -46,10 +46,32 @@ Repeat the steps as needed for each server in your fleet.
         systemctl restart php-fpm
         systemctl restart httpd
 
-1. Curl the `/server-status` and `/status` endpoints to check the configuration.
+1. Curl the `localhost/server-status` endpoint to check the configuration.
 
         curl localhost/server-status?auto
+
+   Output should be similar to the following:
+
+        localhost
+        ServerVersion: Apache/2.4.54 () PHP/7.2.24
+        ServerMPM: prefork
+        ...
+
+1. Curl the `localhost/status` endpoint to check the configuration.
+
         curl localhost/status
+
+   Output should be similar to the following:
+
+        pool:                 www
+        process manager:      dynamic
+        start time:           ...
+        ...
+
+## Configure the Datadog Agent
+The following steps walk you through configuring the Datadog agent to use the Apache and PHP application integrations.
+
+Repeat the steps as needed for each server in your fleet.
 
 1. Create a configuration file for Apache by copying the the example included with the agent and renaming it.
 
