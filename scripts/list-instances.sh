@@ -1,9 +1,11 @@
 #!/bin/bash
 # start all instances in all regions
-for region in us-{east,west}-{1,2};
+for dns in PublicDnsName PrivateDnsName;
 do
-    echo -n "${region}      ";
-    aws ec2 describe-instances --region="${region}" \
-        --query 'Reservations[].Instances[][].PublicDnsName' \
-        --output=text
+    for region in us-{east,west}-{1,2};
+    do
+        aws ec2 describe-instances --region="${region}" \
+            --query "Reservations[].Instances[][].${dns}" \
+            --output=text
+    done > "${dns}-${ENVIRONMENT}.txt"
 done
