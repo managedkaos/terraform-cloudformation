@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Read the list of servers from the file
-SERVERS=$(cat /tmp/serverlist.txt)
+SERVERS=$(cat ${1})
 
 # Define the parameters for the Apache Bench command
-AB_PARAMS="-n 1 -c 5 -t 60"
+AB_PARAMS="-n 10 -c 5 -t 120"
 
 # Initialize the iteration counter
 ITERATION=0
