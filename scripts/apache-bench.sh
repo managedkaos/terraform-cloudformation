@@ -17,7 +17,7 @@ while :; do
   # Loop through each server and fork a process to send traffic to it using Apache Bench
   for server in $SERVERS; do
     echo "$(date) Iteration $ITERATION: Sending traffic to $server in background..."
-    /usr/bin/ab $AB_PARAMS "http://$server/" > /dev/null 2>&1 &
+    /usr/bin/ab $AB_PARAMS "http://$server/wordpress/" > /dev/null 2>&1 &
   done
 
   # Wait for all background processes to finish
