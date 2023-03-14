@@ -21,7 +21,7 @@ Repeat the steps as needed for each server in your fleet.
 
         vim /etc/httpd/conf.modules.d/status.conf
 
-1. Add the following configuration and save the file:
+1. Add the following configuration and save the file (note that a file with the following text is avaiable in the exercise files for reference):
 
         <Location "/server-status">
             SetHandler server-status
