@@ -29,17 +29,11 @@ cost:
 		--format=json | \
 		jq -r '. | [.totalHourlyCost, .diffTotalHourlyCost, .totalMonthlyCost, .diffTotalMonthlyCost]'
 
-start:
-	$(PROJECT_HOME)/scripts/start-instances.sh
-
-stop:
-	$(PROJECT_HOME)/scripts/stop-instances.sh
+start stop reboot list:
+	$(PROJECT_HOME)/scripts/$(@)-instances.sh
 
 install:
 	$(PROJECT_HOME)/scripts/install.sh
-
-list:
-	$(PROJECT_HOME)/scripts/list-instances.sh
 
 traffic:
 	$(PROJECT_HOME)/scripts/traffic.sh
