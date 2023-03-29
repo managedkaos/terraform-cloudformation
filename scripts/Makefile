@@ -29,11 +29,16 @@ cost:
 		--format=json | \
 		jq -r '. | [.totalHourlyCost, .diffTotalHourlyCost, .totalMonthlyCost, .diffTotalMonthlyCost]'
 
-start stop reboot list:
+start stop reboot:
 	$(PROJECT_HOME)/scripts/$(@)-instances.sh
+
+list:
+	$(PROJECT_HOME)/scripts/$(@)-instances.sh | tee /tmp/instances.txt
 
 install:
 	$(PROJECT_HOME)/scripts/install.sh
 
-traffic:
-	$(PROJECT_HOME)/scripts/traffic.sh
+traffic: list
+	scp /tmp/instances.txt $(PROJECT_HOME)/scripts/apache-bench.sh \
+		$(shell tail -n 1 /tmp/instances.txt):~
+	ssh $(shell tail -n 1 /tmp/instances.txt) 'nohup bash ~/apache-bench.sh ~/instances.txt > ~/log.txt 2>&1 &'
