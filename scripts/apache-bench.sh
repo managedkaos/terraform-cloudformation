@@ -4,7 +4,7 @@
 SERVERS=$(cat ${1})
 
 # Define the parameters for the Apache Bench command
-AB_PARAMS="-n 5 -c 5 -t 120"
+AB_PARAMS="-n 10 -c 5 -t 120"
 
 # Initialize the iteration counter
 ITERATION=0
