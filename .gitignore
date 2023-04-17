@@ -1,6 +1,7 @@
 ec2-*
 *.pem
 *.pdf
+*.zip
 PrivateDnsName-*
 PublicDnsName-*
 
