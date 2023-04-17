@@ -1,7 +1,15 @@
 #!/bin/bash
 # stop all running instances in all regions
-for region in us-{east,west}-{1,2};
-do
+
+for region in us-{east,west}-{1,2}; do
     echo "${region}";
-    aws ec2 stop-instances --region=${region} --instance-ids $(aws ec2 describe-instances --region=${region} --query 'Reservations[].Instances[][].InstanceId' --filters Name=instance-state-name,Values=running --output=text) --output=json || echo "ok";
+    (
+        instance_ids=$(aws ec2 describe-instances --region=${region} --filters Name=instance-state-name,Values=running --query='Reservations[].Instances[].InstanceId' --output=text)
+        aws ec2 stop-instances --region=${region} --instance-ids $instance_ids --output=json && \
+        aws ec2 wait instance-stopped --region=${region} --instance-ids $instance_ids || echo OK
+    ) &
 done
+
+# wait for all subprocesses to complete successfully
+wait
+echo "All instances stopped"
