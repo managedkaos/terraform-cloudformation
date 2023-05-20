@@ -13,7 +13,7 @@ while :; do
 
   # Loop through each server and fork a process to send traffic to it using Apache Bench
   for server in $SERVERS; do
-    echo "$(date) Iteration $ITERATION: $server"
+    echo "$(date) Spider Iteration $ITERATION: $server"
         wget -q --spider --recursive --no-parent --level=3 --wait=1 "http://${server}/wordpress/" &
   done
 
@@ -23,7 +23,7 @@ while :; do
   rm -rvf ./ec2-* &> /dev/null
 
   # Output a message indicating that the iteration has finished
-  echo "$(date) Iteration $ITERATION finished."
+  echo "$(date) Spider Iteration $ITERATION finished."
 
   # Sleep before starting the next iteration
 done
