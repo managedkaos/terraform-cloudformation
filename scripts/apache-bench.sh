@@ -25,7 +25,7 @@ while :; do
   # Loop through each server and fork a process to send traffic to it using Apache Bench
   for server in $SERVERS; do
     echo "$(date) Apache Bench Iteration $ITERATION: $server"
-    /usr/bin/ab "${AB_PARAMS}" "http://$server/${ROUTE}" > /dev/null 2>&1 &
+    timeout 60 /usr/bin/ab "${AB_PARAMS}" "http://$server/${ROUTE}" > /dev/null 2>&1 &
   done
 
   # Wait for all background processes to finish
@@ -36,5 +36,5 @@ while :; do
   echo "$(date) Apache Bench Iteration $ITERATION finished."
 
   # Sleep before starting the next iteration
-  sleep 120
+  sleep 60
 done
