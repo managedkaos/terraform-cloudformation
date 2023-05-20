@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Read the list of servers from the file
-SERVERS=$(cat "${1}")
+# Read the list of servers from all files passed in on the command line
+SERVERS=$(cat ${@})
 
 # Initialize the iteration counter
 ITERATION=0

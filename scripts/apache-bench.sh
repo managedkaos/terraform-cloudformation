@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Read the list of servers from the file
-SERVERS=$(cat ${1})
+# Read the list of servers from all files passed in on the command line
+SERVERS=$(cat ${@})
 
 # Define the parameters for the Apache Bench command
 AB_PARAMS="-n 10 -c 5 -t 120"
