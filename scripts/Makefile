@@ -43,3 +43,9 @@ traffic: list
 		$(shell tail -n 1 /tmp/servers.txt):~
 	ssh $(shell tail -n 1 /tmp/servers.txt) 'nohup bash ~/apache-bench.sh ~/servers.txt > ~/apache-bench-log.txt 2>&1 &'
 	ssh $(shell tail -n 1 /tmp/servers.txt) 'nohup bash ~/spider.sh ~/servers.txt > ~/spider-log.txt 2>&1 &'
+
+load-runnr: list
+	scp $(PROJECT_HOME)/scripts/{apache-bench,spider,load-runnr}.sh ./PublicDnsName-*.txt load-runnr.cicdserver.com:~
+	ssh load-runnr.cicdserver.com 'nohup bash ~/load-runnr.sh > log.txt 2>&1 &'
+
+
