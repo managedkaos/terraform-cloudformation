@@ -18,7 +18,7 @@ while :; do
   done
 
   # Wait for all background processes to finish
-  echo "$(date) Waiting for spider to finish in iteration $ITERATION..."
+  echo "$(date) Waiting for spider to finish iteration $ITERATION..."
   wait
   rm -rvf ./ec2-* &> /dev/null
 

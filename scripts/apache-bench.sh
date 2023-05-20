@@ -29,7 +29,7 @@ while :; do
   done
 
   # Wait for all background processes to finish
-  echo "$(date) Waiting for apache-bench to finish in iteration $ITERATION..."
+  echo "$(date) Waiting for apache-bench to finish iteration $ITERATION..."
   wait
 
   # Output a message indicating that the iteration has finished
