@@ -37,4 +37,4 @@ while :; do
 
   # Sleep before starting the next iteration
   sleep 120
-done
+donm

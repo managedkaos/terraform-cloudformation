@@ -33,13 +33,13 @@ start stop reboot describe:
 	$(PROJECT_HOME)/scripts/$(@)-instances.sh
 
 list:
-	$(PROJECT_HOME)/scripts/$(@)-instances.sh | tee /tmp/instances.txt
-	cp /tmp/instances.txt /tmp/servers.txt
+	$(PROJECT_HOME)/scripts/$(@)-instances.sh | tee /tmp/servers.txt
 
 install:
 	$(PROJECT_HOME)/scripts/install.sh
 
 traffic: list
-	scp /tmp/instances.txt $(PROJECT_HOME)/scripts/apache-bench.sh \
-		$(shell tail -n 1 /tmp/instances.txt):~
-	ssh $(shell tail -n 1 /tmp/instances.txt) 'nohup bash ~/apache-bench.sh ~/instances.txt > ~/log.txt 2>&1 &'
+	scp /tmp/servers.txt $(PROJECT_HOME)/scripts/{apache-bench,spider}.sh \
+		$(shell tail -n 1 /tmp/servers.txt):~
+	ssh $(shell tail -n 1 /tmp/servers.txt) 'nohup bash ~/apache-bench.sh ~/servers.txt > ~/apache-bench-log.txt 2>&1 &'
+	ssh $(shell tail -n 1 /tmp/servers.txt) 'nohup bash ~/spider.sh ~/servers.txt > ~/spider-log.txt 2>&1 &'
