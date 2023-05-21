@@ -45,4 +45,4 @@ traffic: list
 	ssh $(shell tail -n 1 /tmp/servers.txt) 'nohup bash ~/spider.sh ~/servers.txt > ~/spider-log.txt 2>&1 &'
 
 load-runnr:
-	cp apache-bench.sh spider.sh load-runnr.sh ~/Google_Drive/Workspace/load-runnr
+	cp stress.sh apache-bench.sh spider.sh load-runnr.sh ~/Google_Drive/Workspace/load-runnr
