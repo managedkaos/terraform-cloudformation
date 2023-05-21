@@ -14,7 +14,7 @@ while :; do
   # Loop through each server and fork a process to start the stress command
   for server in $SERVERS; do
     echo "$(date) Stress Iteration $ITERATION: $server"
-    ssh "${server}" 'nohup /usr/bin/stress --cpu 1 --vm 1 --timeout 60 > stress.txt 2>&1 &'
+    ssh "${server}" 'nohup /usr/bin/stress --cpu 1 --vm 1 --timeout 60 >> stress.txt 2>&1 &'
   done
 
   # Wait for all background processes to finish
