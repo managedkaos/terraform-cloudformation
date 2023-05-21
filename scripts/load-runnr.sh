@@ -6,4 +6,5 @@ TAG=$(date +%F-%H-%M-%S)
 # and wait for both to finish before continuing
 ./apache-bench.sh PublicDnsName-*.txt > ab-${TAG}.txt &
 ./spider.sh PublicDnsName-*.txt > spider-${TAG}.txt &
+./stress.sh PublicDnsName-*.txt > stress-${TAG}.txt &
 wait
