@@ -4,7 +4,7 @@ TAG=$(date +%F-%H-%M-%S)
 
 # Run apache-bench.sh and spider.sh in parallel
 # and wait for both to finish before continuing
-./apache-bench.sh PublicDnsName-*.txt > ab-${TAG}.txt &
-./spider.sh PublicDnsName-*.txt > spider-${TAG}.txt &
-./stress.sh PublicDnsName-*.txt > stress-${TAG}.txt &
-wait
+for i in {1..10}; do
+  ./apache-bench.sh PublicDnsName-*.txt > ab${i}-${TAG}.txt &
+  ./spider.sh PublicDnsName-*.txt > spider${i}-${TAG}.txt &
+done

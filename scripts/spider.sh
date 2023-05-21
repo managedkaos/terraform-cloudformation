@@ -14,7 +14,8 @@ while :; do
   # Loop through each server and fork a process to send traffic to it using Apache Bench
   for server in $SERVERS; do
     echo "$(date) Spider Iteration $ITERATION: $server"
-    timeout 60 wget -q --spider --recursive --no-parent --level=3 --wait=1 "http://${server}/wordpress/" &
+    #timeout 60 wget -q --spider --recursive --no-parent --level=3 --wait=1 "http://${server}/wordpress/" &
+    timeout 60 wget -q --spider --recursive --no-parent --level=3 "http://${server}/wordpress/" &
   done
 
   # Wait for all background processes to finish
@@ -26,5 +27,5 @@ while :; do
   echo "$(date) Spider Iteration $ITERATION finished."
 
   # Sleep before starting the next iteration
-  sleep 60
+  #sleep 60
 done

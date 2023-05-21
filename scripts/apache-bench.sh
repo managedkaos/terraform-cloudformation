@@ -36,5 +36,5 @@ while :; do
   echo "$(date) Apache Bench Iteration $ITERATION finished."
 
   # Sleep before starting the next iteration
-  sleep 60
+  #sleep 60
 done
