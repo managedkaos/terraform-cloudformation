@@ -9,7 +9,10 @@ Be sure that you have already:
 1. Configured the agent to report data for php-fpm and Apache httpd.
 
 ## Starting in the web console
-1. In the Datadog web console, select `APM` -> `Setup & Configuration`.
+1. In the Datadog web console, select `APM` -> `Introduction` or browse to [https://us5.datadoghq.com/apm/intro](https://us5.datadoghq.com/apm/intro)
+
+        Note that you may have to adjust the link above to reflect your region if your account is not located in the "us5" region.
+
 1. Select `Instrument a new Service`.
 1. Select `Host-Based`.
 1. Under "Choose your language", select `php`.
@@ -69,7 +72,7 @@ Be sure that you have already:
 
 1. Send some traffic to the website using the following `wget` command.  This command will continuously "spider" the website by scanning every path on the site starting with the root path, `/wordpress/`.
 
-        while :; do wget --spider --recursive --no-parent --level=3 --wait=1 http://localhost/wordpress/; done
+        while :; do wget --spider --recursive --wait=1 localhost/wordpress; done
 
 1. Allow the command to run while you complete the next demo.
 1. To stop the command when your're done, type `CTRL+C`.
