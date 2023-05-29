@@ -2,8 +2,14 @@
 
 In this demo, we're configuring our Globamantics server to report APM metrics to datadog.
 
-## Starting in the console
-1. In the Datadog console, select `APM` -> `Setup & Configuration`.
+## Prerequisites
+Be sure that you have already:
+1. Set up a demo server
+1. Installed the Datadog agent.
+1. Configured the agent to report data for php-fpm and Apache httpd.
+
+## Starting in the web console
+1. In the Datadog web console, select `APM` -> `Setup & Configuration`.
 1. Select `Instrument a new Service`.
 1. Select `Host-Based`.
 1. Under "Choose your language", select `php`.
@@ -55,13 +61,11 @@ In this demo, we're configuring our Globamantics server to report APM metrics to
 1. Save the file and exit the editor.
 1. Restart php-fpm and Apache:
 
-        systemctl restart php-fpm
-        systemctl restart httpd
+        systemctl restart php-fpm httpd
 
 1. Check the status for php-fpm and Apache:
 
-        systemctl status php-fpm
-        systemctl status httpd
+        systemctl status php-fpm httpd
 
 1. Send some traffic to the website using the following `wget` command.  This command will continuously "spider" the website by scanning every path on the site starting with the root path, `/wordpress/`.
 
