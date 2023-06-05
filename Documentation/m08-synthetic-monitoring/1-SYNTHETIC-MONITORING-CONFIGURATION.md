@@ -2,11 +2,17 @@
 
 In this demo, we're configuring synthetic monitoring for one of the Globomantics demo servers.
 
+
+## References
+[Getting Started with API Tests](https://docs.datadoghq.com/getting_started/synthetics/api_test/)
+
+
 ## Prerequisites
 Be sure that you have already:
 1. Set up a demo server
 1. Installed the Datadog agent.
 1. Configured the agent to report APM data for php-fpm and Apache httpd.
+
 
 ## Create a Synthetic Monitoring Test
 1. In the Datadog web console, select `UX Monitoring` -> `Synthetic Tests` or browse to [https://us5.datadoghq.com/synthetics/tests](https://us5.datadoghq.com/synthetics/tests)
