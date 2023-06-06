@@ -23,6 +23,8 @@ Be sure that you have already:
 1. Under `Choose request type`, make sure HTTP is selected.
 1. Under `Define request`, select `GET` and enter the URL for your server.
 
+    Add any paths that are needed to route the request to the target application, like `/wordpress/`, for example.
+
     Make sure to use `http://` if your endpoint does not have an SSL certificate.
 
 1. Note the `Name` that is created according the to entry from the previous step.
