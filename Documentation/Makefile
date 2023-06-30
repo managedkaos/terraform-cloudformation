@@ -6,5 +6,5 @@ else
 endif
 
 zip: $(PDF_FILES)
-	zip -r ./Demos.zip *.pdf $(STATUS_CONF)
+	zip -r ./Demos.zip *.pdf *.txt $(STATUS_CONF)
 
