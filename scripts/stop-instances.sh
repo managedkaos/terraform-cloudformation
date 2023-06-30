@@ -13,3 +13,4 @@ done
 # wait for all subprocesses to complete successfully
 wait
 echo "All instances stopped"
+say "All instances stopped" || echo "All instances stopped"

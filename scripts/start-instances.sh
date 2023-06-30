@@ -12,3 +12,4 @@ done
 # wait for all subprocesses to complete successfully
 wait
 echo "All instances running"
+say "All instances running" || echo "All instances running"
