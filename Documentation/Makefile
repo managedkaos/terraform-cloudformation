@@ -1,12 +1,7 @@
 PDF_FILES = $(wildcard *.pdf)
 TXT_FILES = $(wildcard *.txt)
+CONFIG_FILES = $(wildcard *.conf)
 
-ifeq ($(wildcard status.conf),)
-    STATUS_CONF =
-else
-    STATUS_CONF = status.conf
-endif
-
-./Demos.zip: $(PDF_FILES) $(TXT_FILES) $(STATUS_CONF)
-	zip -r ./Demos.zip *.pdf *.txt $(STATUS_CONF)
+./Demos.zip: $(PDF_FILES) $(TXT_FILES) $(CONFIG_FILES)
+	zip -r ./Demos.zip $(PDF_FILES) $(TXT_FILES) $(CONFIG_FILES)
 
