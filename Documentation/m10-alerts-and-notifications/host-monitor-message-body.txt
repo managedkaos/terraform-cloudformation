@@ -1,0 +1,11 @@
+- Name : {{host.name}}
+- Availability Zone :  {{host.availability-zone}}
+- AWS Account :  {{host.aws_account}}
+- Cloudformation Logical ID :  {{host.aws_cloudformation_logical-id}}
+- Cloudformation Stack ID :  {{host.aws_cloudformation_stack-id}}
+- Cloudformation Stack Name :  {{host.aws_cloudformation_stack-name}}
+- Image :  {{host.image}}
+- Instance Type :  {{host.instance-type}}
+- Name Tag :  {{host.name_tag}}
+- Region :  {{host.region}}
+- Security Group :  {{host.security-group}}

@@ -1,0 +1,7 @@
+{{#is_alert}}
+Apache process count {{value}} is below {{threshold}}!
+{{/is_alert}}
+
+{{#is_recovery}}
+Apache process count is now {{value}}.
+{{/is_recovery}}
